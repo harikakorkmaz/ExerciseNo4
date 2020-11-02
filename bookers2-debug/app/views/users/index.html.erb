@@ -24,8 +24,9 @@
 				<tr>
 					<td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
 					<td><%= user.name %></td>
-					<td>フォロー数:<%= user.following_count %></td>
-					<td>フォロワー数:<%= user.followers_count %></td>
+					<td>フォロー数:<%= user.following.count %></td>
+					<td>フォロワー数:<%= user.followers.count %></td>
+					<td><%= render 'follow_form' if logged_in? %></td>
 					<td><%= link_to "Show", user_path(user), class: "user_#{user.id}" %></td>
 				</tr>
 				<% end %>
